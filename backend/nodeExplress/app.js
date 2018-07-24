@@ -1,34 +1,24 @@
+const path = require("path");
 const createError = require("http-errors");
 const express = require("express");
+const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
-const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-const mongoose = require("mongoose");
 
 // sudo sysctl fs.inotify.max_user_watches=582222 && sudo sysctl -p
-
-const indexRouter = require("./routes/index");
-const usersRouter = require("./routes/users");
-const postsRouter = require("./routes/posts");
-const employeesRouter = require("./routes/employees");
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 //Connection to local Mongo DB
-mongoose
-  .connect(
-    "mongodb://127.0.0.1:27017/adventure",
-    { useNewUrlParser: true }
-  )
-  .then(() => {
-    console.log("Connected to database!");
-  })
-  .catch(() => {
-    console.log("Connection failed!");
-  });
+
+
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
+const postsRouter = require("./routes/posts");
+const employeesRouter = require("./routes/employees");
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

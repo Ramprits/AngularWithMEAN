@@ -12,5 +12,5 @@ export class PostModel {
 export interface Post {
   id?: string;
   title: string;
-  body: string;
+  content: string;
 }
