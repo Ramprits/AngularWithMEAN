@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 
 // sudo sysctl fs.inotify.max_user_watches=582222 && sudo sysctl -p
+// ZVUogNrFQwpTZ9no
 
 const app = express();
 app.use(bodyParser.json());
@@ -14,6 +15,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //Connection to local Mongo DB
 
+
+const indexRouter = require("./routes/index");
+const usersRouter = require("./routes/users");
+const postsRouter = require("./routes/posts");
+const employeesRouter = require("./routes/employees");
 
 const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");

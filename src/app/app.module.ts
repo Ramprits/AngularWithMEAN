@@ -5,16 +5,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { Angulartics2Module } from 'angulartics2';
-import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+// import { Angulartics2Module } from 'angulartics2';
+// import { Angulartics2GoogleAnalytics } from 'angulartics2/ga/angulartics2-ga';
 
 import { environment } from '@env/environment';
 import { CoreModule } from '@app/core';
 import { SharedModule } from '@app/shared';
-import { HomeModule } from './home/home.module';
-import { LoginModule } from './login/login.module';
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
+import { HomeModule } from '@app/home/home.module';
+import { LoginModule } from '@app/login/login.module';
+import { AppComponent } from '@app/app.component';
+import { AppRoutingModule } from '@app/app-routing.module';
 
 @NgModule({
   imports: [
@@ -28,12 +28,11 @@ import { AppRoutingModule } from './app-routing.module';
     SharedModule,
     HomeModule,
     LoginModule,
-    Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
+    // Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
     AppRoutingModule
   ],
   declarations: [AppComponent],
-  providers: [
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

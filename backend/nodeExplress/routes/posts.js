@@ -13,7 +13,7 @@ router.get("/", function(req, res, next) {
 });
 
 /* POST users listing. */
-router.post("/", function(req, res, next) {
+router.post("/", (req, res, next) => {
   const post = new Post({
     title: req.body.title,
     content: req.body.content
