@@ -37,4 +37,13 @@ export class PostService {
   getPostUpdatedListener() {
     return this.postUpdated.asObservable();
   }
+
+  addPost(title: string, body: string) {
+    const post: Post = { id: null, title: title, body: body };
+    return this._http.post<{ message: string }>('/api/posts', post).subscribe(responseData => {
+      this.posts.push(post);
+      this.postUpdated.next([...this.posts]);
+      console.log(responseData.message);
+    });
+  }
 }

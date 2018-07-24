@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+const Post = require("../models/post");
 
 /* GET users listing. */
 router.get("/", function(req, res, next) {
@@ -608,6 +609,16 @@ router.get("/", function(req, res, next) {
     message: "Post fetched sucessfully !",
     posts: posts
   });
+});
+
+/* POST users listing. */
+router.post("/", function(req, res, next) {
+  const post = new Post({
+    title: req.body.title,
+    body: req.body.body
+  });
+  res.status(201).json();
+  console.log(post);
 });
 
 module.exports = router;
