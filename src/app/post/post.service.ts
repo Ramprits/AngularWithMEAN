@@ -38,8 +38,8 @@ export class PostService {
     return this.postUpdated.asObservable();
   }
 
-  addPost(title: string, body: string) {
-    const post: Post = { id: null, title: title, body: body };
+  addPost(title: string, content: string) {
+    const post: Post = { id: null, title: title, content: content };
     return this._http.post<{ message: string }>('/api/posts', post).subscribe(responseData => {
       this.posts.push(post);
       this.postUpdated.next([...this.posts]);

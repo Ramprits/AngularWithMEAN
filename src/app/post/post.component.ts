@@ -21,7 +21,7 @@ export class PostComponent implements OnInit, OnDestroy {
     });
   }
   onSave(formData: any) {
-    this._ps.addPost(formData.title, formData.body);
+    this._ps.addPost(formData.title, formData.content);
   }
   ngOnDestroy() {
     this.postsSub.unsubscribe();

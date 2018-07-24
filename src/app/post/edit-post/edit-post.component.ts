@@ -14,11 +14,12 @@ export class EditPostComponent implements OnInit {
   ngOnInit() {
     this.form = new FormGroup({
       title: new FormControl(null, { validators: [Validators.required, Validators.minLength(10)] }),
-      body: new FormControl(null, { validators: [Validators.required, Validators.minLength(10)] })
+      content: new FormControl(null, { validators: [Validators.required, Validators.minLength(10)] })
     });
   }
 
   onSave(data: any) {
     this.addPostEventEmmiter.emit(data);
+    this.form.reset();
   }
 }
